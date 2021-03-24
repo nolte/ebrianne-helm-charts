@@ -60,26 +60,10 @@ jobs:
           ./charts/cert-manager-webhook-duckdns
           kubectl get pods -n cert-manager
 
-          echo "[dev] deploy a testing certificate..."
-          cat << EOF | kubectl apply --namespace=default -f -
-          ---
-          apiVersion: cert-manager.io/v1
-          kind: Certificate
-          metadata:
-            name: cert-test-duckdns-org
-            namespace: default
-          spec:
-            dnsNames:
-            - '${DUCKDNS_DOMAIN}.duckdns.org'
-            issuerRef:
-              name: cert-manager-webhook-duckdns-staging
-              kind: ClusterIssuer
-            secretName: cert-test-duckdns-org-tls
-          EOF
-
           echo "[dev] get cert-manager-webhook-duckdns logs..."
           kubectl logs -l app=cert-manager-webhook-duckdns -n cert-manager
 
-          echo "[dev] describe cert-manager-webhook-duckdns tls..."
-          kubectl describe certificate -n default cert-test-duckdns-org-tls
+          echo "[dev] describe cert-manager-webhook-duckdns issuers..."
+          kubectl describe clusterissuers.cert-manager.io cert-manager-webhook-duckdns-staging
+          kubectl describe clusterissuers.cert-manager.io cert-manager-webhook-duckdns-production
         

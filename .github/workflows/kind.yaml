@@ -1,4 +1,4 @@
-name: Lint and Test Charts
+name: Deploy chart in KinD
 
 on: [pull_request, workflow_dispatch]
 

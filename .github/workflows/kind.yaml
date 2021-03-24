@@ -79,4 +79,7 @@ jobs:
 
           echo "[dev] get cert-manager-webhook-duckdns logs..."
           kubectl logs -l app=cert-manager-webhook-duckdns -n cert-manager
+
+          echo "[dev] describe cert-manager-webhook-duckdns tls..."
+          kubectl describe certificate -n default cert-test-duckdns-org-tls
         

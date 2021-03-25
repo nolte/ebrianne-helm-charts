@@ -2,9 +2,33 @@ apiVersion: v1
 entries:
   cert-manager-webhook-duckdns:
   - apiVersion: v1
+    appVersion: v1.2
+    created: "2021-03-25T17:59:08.256139746Z"
+    description: A Helm chart for cert manager webhook solver for ACME DNS01 challenge
+      via DuckDNS
+    digest: 35f12afec9fefef25d11ba4eaf6d2a3c60cdfa9c6bfa313e136a58b96c56902b
+    home: https://github.com/ebrianne/cert-manager-webhook-duckdns
+    icon: https://raw.githubusercontent.com/jetstack/cert-manager/master/logo/logo.png
+    keywords:
+    - cert-manager
+    - webhook
+    - letsencrypt
+    - tls
+    maintainers:
+    - email: eldwan35@gmail.com
+      name: ebrianne
+      url: https://ebrianne.technolab.duckdns.org
+    name: cert-manager-webhook-duckdns
+    sources:
+    - https://github.com/ebrianne/cert-manager-webhook-duckdns
+    urls:
+    - https://github.com/ebrianne/helm-charts/releases/download/cert-manager-webhook-duckdns-v1.2/cert-manager-webhook-duckdns-v1.2.tgz
+    version: v1.2
+  - apiVersion: v1
     appVersion: v1.1
     created: "2021-01-14T23:10:51.894858252Z"
-    description: A Helm chart for cert manager webhook solver for ACME DNS01 challenge via DuckDNS
+    description: A Helm chart for cert manager webhook solver for ACME DNS01 challenge
+      via DuckDNS
     digest: 57addf9bced5d22179af0204f0154a6fd0a36fbefd7a241b890fa8abffaede8c
     home: https://github.com/ebrianne/cert-manager-webhook-duckdns
     icon: https://raw.githubusercontent.com/jetstack/cert-manager/master/logo/logo.png
@@ -26,7 +50,8 @@ entries:
   - apiVersion: v1
     appVersion: v1.0
     created: "2021-01-03T14:42:00.315240522Z"
-    description: A Helm chart for cert manager webhook solver for ACME DNS01 challenge via DuckDNS
+    description: A Helm chart for cert manager webhook solver for ACME DNS01 challenge
+      via DuckDNS
     digest: 6720b9c288cf0ceb74367452e5bb241bbe67646a9669c0f3eaaa38ebbf61ff77
     home: https://github.com/ebrianne/cert-manager-webhook-duckdns
     icon: https://raw.githubusercontent.com/jetstack/cert-manager/master/logo/logo.png
@@ -45,4 +70,4 @@ entries:
     urls:
     - https://github.com/ebrianne/helm-charts/releases/download/cert-manager-webhook-duckdns-v1.0/cert-manager-webhook-duckdns-v1.0.tgz
     version: v1.0
-generated: "2021-01-03T14:42:00.206796765Z"
+generated: "2021-03-25T17:59:08.256153346Z"

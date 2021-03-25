@@ -13,6 +13,6 @@ keywords:
 sources:
   - https://github.com/ebrianne/cert-manager-webhook-duckdns
 maintainers:
-  - name: Eldwan Brianne
+  - name: ebrianne
     email: eldwan35@gmail.com
     url: https://ebrianne.technolab.duckdns.org

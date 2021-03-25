@@ -27,11 +27,11 @@ clusterIssuer:
     create: false
   production:
     create: false
-    
+
 image:
   repository: ebrianne/cert-manager-webhook-duckdns
-  tag: v1.1
-  pullPolicy: IfNotPresent 
+  tag: v1.2
+  pullPolicy: IfNotPresent
   # pullSecret: ""
 
 nameOverride: ""

@@ -43,10 +43,18 @@
         "duckdns": {
             "type": "object",
             "properties": {
-                "domain": {
-                    "type": "string"
-                },
                 "token": {
+                    "type": "string"
+                }
+            }
+        },
+        "secret": {
+            "type": "object",
+            "properties": {
+                "existingSecret": {
+                    "type": "boolean"
+                },
+                "existingSecretName": {
                     "type": "string"
                 }
             }

@@ -1,0 +1,96 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "properties": {
+        "duckdns": {
+            "type": "object",
+            "required": [
+                "token",
+                "domains"
+            ],
+            "properties": {
+                "token": {
+                    "type": "string"
+                },
+                "domains": {
+                    "type": "string"
+                }
+            }
+        },
+        "secret": {
+            "type": "object",
+            "properties": {
+                "existingSecret": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "existingSecretName": {
+                    "type": "string",
+                    "default": ""
+                }
+            }
+        },
+        "image": {
+            "type": "object",
+            "properties": {
+                "repository": {
+                    "type": "string",
+                    "default": "ebrianne/duckdns-go"
+                },
+                "tag": {
+                    "type": "string",
+                    "default": "v1.0.2"
+                },
+                "pullPolicy": {
+                    "type": "string",
+                    "default": "IfNotPresent"
+                },
+                "pullSecret": {
+                    "type": "object"
+                }
+            }
+        },
+        "nameOverride": {
+            "type": "string",
+            "default": ""
+        },
+        "fullnameOverride": {
+            "type": "string",
+            "default": ""
+        },
+        "replicaCount": {
+            "type": "integer",
+            "default": 1
+        },
+        "strategy": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "default": "Recreate"
+                }
+            }
+        },
+        "env": {
+            "type": "object"
+        },
+        "podAnnotations": {
+            "type": "object"
+        },
+        "securityContext": {
+            "type": "object"
+        },
+        "resources": {
+            "type": "object"
+        },
+        "nodeSelector": {
+            "type": "object"
+        },
+        "tolerations": {
+            "type": "array"
+        },
+        "affinity": {
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,76 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "duckdns-go.fullname" . }}
+  namespace: {{ .Release.Namespace | quote }}
+  labels:
+    app: {{ include "duckdns-go.name" . }}
+    chart: {{ include "duckdns-go.chart" . }}
+    release: {{ .Release.Name | quote }}
+    heritage: {{ .Release.Service | quote }}
+    {{- if .Values.customLabels }}
+    {{ toYaml .Values.customLabels | nindent 10 }}
+    {{- end }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  {{- with .Values.strategy }}
+  strategy:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  selector:
+    matchLabels:
+      app: {{ include "duckdns-go.name" . }}
+      release: {{ .Release.Name | quote }}
+  template:
+    metadata:
+      {{- if .Values.podAnnotations }}
+      annotations:
+      {{ toYaml .Values.podAnnotations | indent 8 }}
+      {{- end }}
+      labels:
+        app: {{ include "duckdns-go.name" . }}
+        release: {{ .Release.Name | quote }}
+      {{- if .Values.customLabels }}
+      {{ toYaml .Values.customLabels | nindent 10 }}
+      {{- end }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+        {{- with .Values.image.pullSecret }}
+        imagePullSecrets:
+          {{- toYaml . | nindent 2 }}
+        {{- end }}
+        {{- if .Values.securityContext }}
+        securityContext: {{ toYaml .Values.securityContext | nindent 12 }}
+        {{- end }}
+        {{- if .Values.resources }}
+        resources: 
+          {{ toYaml .Values.resources | indent 12 }}
+        {{- end }}
+        env:
+          {{- range $key, $value := .Values.env }}
+          - name: {{ $key }}
+            value: {{ $value | quote }}
+          {{- end }}
+          - name: DUCKDNS_DOMAINS
+            values: {{ .Values.duckdns.domains | quote }}
+          - name: DUCKDNS_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "duckdns-go.secretName" . }}
+                key: token
+        {{- if .Values.nodeSelector }}
+        nodeSelector:
+        {{ toYaml .Values.nodeSelector | indent 8 }}
+        {{- end }}
+        {{- if .Values.affinity }}
+        affinity:
+        {{ toYaml .Values.nodeSelector | indent 8 }}
+        {{- end }}
+        {{- if .Values.tolerations }}
+        tolerations:
+        {{ toYaml .Values.nodeSelector | indent 8 }}
+        {{- end }}

@@ -9,7 +9,8 @@
 
 duckdns:
   token: ""
-  domains: "" # required, need to be comma separated if more than one domain to update
+  # required, need to be comma separated if more than one domain to update
+  domains: ""
 
 secret:
   existingSecret: false
@@ -34,9 +35,6 @@ env: {}
   # TZ: Europe/Berlin
 
 podAnnotations: {}
-
-# Configure the Security Context for the Pod
-podSecurityContext: {}
 
 # Configure the Security Context for the main container
 securityContext:

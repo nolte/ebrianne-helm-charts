@@ -1,0 +1,90 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "affinity": {
+            "type": "object"
+        },
+        "duckdns": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                }
+            }
+        },
+        "secret": {
+            "type": "object",
+            "properties": {
+                "existingSecret": {
+                    "type": "boolean"
+                },
+                "existingSecretName": {
+                    "type": "string"
+                }
+            }
+        },
+        "fullnameOverride": {
+            "type": "string"
+        },
+        "groupName": {
+            "type": "string"
+        },
+        "image": {
+            "type": "object",
+            "properties": {
+                "pullPolicy": {
+                    "type": "string"
+                },
+                "repository": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                },
+                "pullSecret": {
+                    "type": "object"
+                }
+            }
+        },
+        "nameOverride": {
+            "type": "string"
+
+        },
+        "replicaCount": {
+            "type": "integer"
+        },
+        "strategy": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                }
+            }   
+        },
+        "env": {
+            "type": "object"
+        },
+        "extraEnvs": {
+            "type": "object"
+        },
+        "podAnnotations": {
+            "type": "object"
+        },
+        "podSecurityContext": {
+            "type": "object"
+        },
+        "securityContext": {
+            "type": "object"
+        },
+        "nodeSelector": {
+            "type": "object"
+        },
+        "resources": {
+            "type": "object"
+        },
+        "tolerations": {
+            "type": "array"
+        }
+    }
+}

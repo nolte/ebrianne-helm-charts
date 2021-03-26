@@ -1,0 +1,15 @@
+apiVersion: v1
+name: duckdns-go
+version: v1.0.2
+appVersion: v1.0.2
+description: A Helm chart for duckdns go client
+home: https://github.com/ebrianne/duckdns-go
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckdns.png
+keywords:
+  - duckdns
+sources:
+  - https://github.com/ebrianne/duckdns-go
+maintainers:
+  - name: ebrianne
+    email: eldwan35@gmail.com
+    url: https://ebrianne.technolab.duckdns.org

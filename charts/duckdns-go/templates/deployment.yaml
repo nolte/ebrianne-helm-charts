@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "duckdns-go.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ include "duckdns-go.name" . }}
+    chart: {{ include "duckdns-go.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    {{- if .Values.customLabels }}
+    {{ toYaml .Values.customLabels | indent 4 }}
+    {{- end }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  {{- with .Values.strategy }}
+  strategy:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  selector:
+    matchLabels:
+      app: {{ include "duckdns-go.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      {{- if .Values.podAnnotations }}
+      {{ toYaml .Values.podAnnotations | indent 8 }}
+      {{- end }}
+      labels:
+        app: {{ include "duckdns-go.name" . }}
+        release: {{ .Release.Name }}
+        {{- if .Values.customLabels }}
+        {{ toYaml .Values.customLabels | indent 8 }}
+        {{- end }}
+    spec:
+      {{- if .Values.podSecurityContext }}
+      securityContext:
+      {{- end }}
+      {{- if .Values.podSecurityContext }}
+          {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.image.pullSecret }}
+          imagePullSecrets:
+            {{toYaml .Values.image.pullSecret | indent 12 }}
+          {{- end }}
+          {{- if .Values.securityContext }}
+          securityContext:
+            {{ toYaml .Values.securityContext | nindent 12 }}
+          {{- end }}
+          env:
+            - name: DUCKDNS_DOMAINS
+              values: "{{ .Values.duckdns.domains }}"
+            - name: DUCKDNS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "duckdns-go.secretName" . }}
+                  key: token
+          {{ toYaml .Values.env | nindent 12 }}
+          resources:
+          {{ toYaml .Values.resources | indent 12 }}
+      {{- if .Values.nodeSelector }}
+      nodeSelector:
+      {{ toYaml .Values.nodeSelector | indent 8 }}
+      {{- end }}
+      {{- if .Values.affinity }}
+      affinity:
+      {{ toYaml .Values.affinity | indent 8 }}
+      {{- end }}
+      {{- if .Values.tolerations }}
+      tolerations:
+      {{ toYaml .Values.tolerations | indent 8 }}
+      {{- end }}

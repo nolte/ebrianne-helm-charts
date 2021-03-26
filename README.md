@@ -1,5 +1,7 @@
 # A Helm Library for Kubernetes
 
+[![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/ebrianne)](https://artifacthub.io/packages/search?repo=ebrianne)
+
 Popular applications, provided by [ebrianne](https://ebrianne.github.io), ready to launch on Kubernetes using [Kubernetes Helm](https://github.com/helm/helm).
 
 ## TL;DR

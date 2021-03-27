@@ -1,18 +1,21 @@
 {
-    "$schema": "http://json-schema.org/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema",
     "type": "object",
     "properties": {
         "affinity": {
-            "type": "object"
+            "type": "object",
+            "default": "{}"
         },
         "certManager": {
             "type": "object",
             "properties": {
                 "namespace": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "cert-manager"
                 },
                 "serviceAccountName": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "cert-manager"
                 }
             }
         },
@@ -20,13 +23,15 @@
             "type": "object",
             "properties": {
                 "email": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "name@example.com"
                 },
                 "production": {
                     "type": "object",
                     "properties": {
                         "create": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "default": false
                         }
                     }
                 },
@@ -34,7 +39,8 @@
                     "type": "object",
                     "properties": {
                         "create": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "default": false
                         }
                     }
                 }
@@ -44,7 +50,8 @@
             "type": "object",
             "properties": {
                 "token": {
-                    "type": "string"
+                    "type": "string",
+                    "default": ""
                 }
             }
         },
@@ -52,58 +59,72 @@
             "type": "object",
             "properties": {
                 "existingSecret": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "default": false
                 },
                 "existingSecretName": {
-                    "type": "string"
+                    "type": "string",
+                    "default": ""
                 }
             }
         },
         "fullnameOverride": {
-            "type": "string"
+            "type": "string",
+            "default": ""
         },
         "groupName": {
-            "type": "string"
+            "type": "string",
+            "default": "acme.duckdns.org"
         },
         "image": {
             "type": "object",
             "properties": {
                 "pullPolicy": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "IfNotPresent"
                 },
                 "repository": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "ebrianne/cert-manager-webhook-duckdns"
                 },
                 "tag": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "v1.2.2"
                 }
             }
         },
         "logLevel": {
-            "type": "integer"
+            "type": "integer",
+            "default": 2
         },
         "nameOverride": {
-            "type": "string"
+            "type": "string",
+            "default": ""
         },
         "nodeSelector": {
-            "type": "object"
+            "type": "object",
+            "default": "{}"
         },
         "resources": {
-            "type": "object"
+            "type": "object",
+            "default": "{}"
         },
         "service": {
             "type": "object",
             "properties": {
                 "port": {
-                    "type": "integer"
+                    "type": "integer",
+                    "default": 443
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "ClusterIP"
                 }
             }
         },
         "tolerations": {
-            "type": "array"
+            "type": "array",
+            "default": "[]"
         }
     }
 }

@@ -10,10 +10,12 @@
             ],
             "properties": {
                 "token": {
-                    "type": "string"
+                    "type": "string",
+                    "default": ""
                 },
                 "domains": {
-                    "type": "string"
+                    "type": "string",
+                    "default": ""
                 }
             }
         },
@@ -46,7 +48,8 @@
                     "default": "IfNotPresent"
                 },
                 "pullSecret": {
-                    "type": "object"
+                    "type": "object",
+                    "default": "{}"
                 }
             }
         },
@@ -72,25 +75,41 @@
             }
         },
         "env": {
-            "type": "object"
+            "type": "object",
+            "default": "{}"
         },
         "podAnnotations": {
-            "type": "object"
+            "type": "object",
+            "default": "{}"
         },
         "securityContext": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "runAsNonRoot": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "runAsUser": {
+                    "type": "integer",
+                    "default": 65534
+                }
+            }
         },
         "resources": {
-            "type": "object"
+            "type": "object",
+            "default": "{}"
         },
         "nodeSelector": {
-            "type": "object"
+            "type": "object",
+            "default": "{}"
         },
         "tolerations": {
-            "type": "array"
+            "type": "array",
+            "default": "[]"
         },
         "affinity": {
-            "type": "object"
+            "type": "object",
+            "default": "{}"
         }
     }
 }

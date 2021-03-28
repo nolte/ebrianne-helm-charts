@@ -42,6 +42,6 @@ Create the name of the service account to use
 {{- end -}}
 {{- end -}}
 
-{{- define "botkube.secretName" -}}
-{{- default ( {{ include "botkube.fullname" }}-communication-secret .) (.Values.communication.existingSecretName) -}}
+{{- define "botkube.CommunicationsSecretName" -}}
+{{- default (include "botkube.fullname" .) (.Values.communications.existingSecretName) "-communication-secret" -}}
 {{- end -}}

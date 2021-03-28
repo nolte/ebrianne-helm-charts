@@ -67,7 +67,7 @@ spec:
             - configMap:
                 name: {{ include "botkube.fullname" . }}-configmap
             - secret:
-                name: {{ include "botkube.secretName" . }}
+                name: {{ include "botkube.CommunicationsSecretName" . }}
       {{- if .Values.config.ssl.enabled }} 
         - name: certs
           secret:

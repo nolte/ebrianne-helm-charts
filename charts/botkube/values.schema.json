@@ -1,0 +1,288 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "properties": {
+        "replicaCount": {
+            "type": "integer",
+            "default": 1
+        },
+        "extraAnnotations": {
+            "type": "object",
+            "default": "{}"
+        },
+        "priorityClassName": {
+            "type": "string",
+            "default": ""
+        },
+        "image": {
+            "type": "object",
+            "properties": {
+                "repository": {
+                    "type": "string",
+                    "default": "infracloudio/botkube"
+                },
+                "pullPolicy": {
+                    "type": "string",
+                    "default": "IfNotPresent"
+                },
+                "tag": {
+                    "type": "string",
+                    "default": "v0.12.0"
+                }
+            }
+        },
+        "nameOverride": {
+            "type": "string",
+            "default": ""
+        },
+        "fullnameOverride": {
+            "type": "string",
+            "default": ""
+        },
+        "podSecurityPolicy": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        },
+        "securityContext": {
+            "type": "object",
+            "properties": {
+                "runAsUser": {
+                    "type": "integer",
+                    "default": 101
+                },
+                "runAsGroup": {
+                    "type": "integer",
+                    "default": 101
+                }
+            }
+        },
+        "logLevel": {
+            "type": "string",
+            "default": "info"
+        },
+        "config": {
+            "type": "object",
+            "properties": {
+                "resources": {
+                    "type": "array"
+                },
+                "recommendations": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "ssl": {
+                    "type": "object",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                },
+                "settings": {
+                    "type": "object",
+                    "properties": {
+                        "clustername": {
+                            "type": "string",
+                            "default": "not-configured"
+                        },
+                        "kubectl": {
+                            "type": "object",
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean",
+                                    "default": false
+                                },
+                                "commands": {
+                                    "type": "object",
+                                    "properties": {
+                                        "verbs": {
+                                            "type": "array",
+                                            "default": ["deployments", "pods", "namespaces", "daemonsets", "statefulsets", "storageclasses", "nodes"]
+                                        },
+                                        "resources": {
+                                            "type": "array",
+                                            "default": ["api-resources", "api-versions", "cluster-info", "describe", "diff", "explain", "get", "logs", "top", "auth"]
+                                        }
+                                    }
+                                },
+                                "defaultNamespace": {
+                                    "type": "string",
+                                    "default": "defaul"
+                                },
+                                "restrictAccess": {
+                                    "type": "boolean",
+                                    "default": false
+                                }   
+                            }
+                        },
+                        "configwatcher": {
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "upgradeNotifier": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                }
+            }
+        },
+        "communications": {
+            "properties": {
+                "existingSecret": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "existingSecretName": {
+                    "type": "string",
+                    "default": ""
+                },
+                "slack": {
+                    "type": "object"
+                },
+                "mattermost": {
+                    "type": "object"
+                },
+                "teams": {
+                    "type": "object"
+                },
+                "discord": {
+                    "type": "object"
+                },
+                "elasticsearch": {
+                    "type": "object"
+                },
+                "webhook": {
+                    "type": "object"
+                }
+            }
+        },
+        "service": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "default": "metrics"
+                },
+                "port": {
+                    "type": "integer",
+                    "default": 2112
+                },
+                "targetPort": {
+                    "type": "integer",
+                    "default": 2112
+                }
+            }
+        },
+        "ingress": {
+            "type": "object",
+            "properties": {
+                "create": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "annotations": {
+                    "type": "object",
+                    "default": "{}"
+                },
+                "host": {
+                    "type": "string",
+                    "default": "HOST"
+                },
+                "urlPath": {
+                    "type": "string",
+                    "default": "/"
+                },
+                "tls": {
+                    "type": "object",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "secretName": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    }
+                }
+            }
+        },
+        "serviceMonitor": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "interval": {
+                    "type": "string",
+                    "default": "10s"
+                },
+                "path": {
+                    "type": "string",
+                    "default": "/metrics"
+                },
+                "port": {
+                    "type": "string",
+                    "default": "metrics"
+                },
+                "labels": {
+                    "type": "object",
+                    "default": "{}"
+                }
+            }
+        },
+        "resources": {
+            "type": "object",
+            "default": "{}"
+        },
+        "extraEnv": {
+            "type": "object",
+            "default": "{}"
+        },
+        "nodeSelector": {
+            "type": "object",
+            "default": "{}"
+        },
+        "tolerations": {
+            "type": "array",
+            "default": "[]"
+        },
+        "affinity": {
+            "type": "object",
+            "default": "{}"
+        },
+        "rbac": {
+            "type": "object",
+            "properties": {
+                "create": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "rules": {
+                    "type": "array"
+                }
+            }
+        },
+        "serviceAccount": {
+            "type": "object",
+            "properties": {
+                "create": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "annotations": {
+                    "type": "object",
+                    "default": "{}"
+                }
+            }
+        }
+    }
+}

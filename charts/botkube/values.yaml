@@ -377,7 +377,9 @@ affinity: {}
 rbac:
   create: true
   rules:
-    ls
+    - apiGroups: ["*"]
+      resources: ["*"]
+      verbs: ["get", "watch", "list"]
 
 serviceAccount:
   # Specifies whether a service account should be created

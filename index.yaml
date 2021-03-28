@@ -1,5 +1,33 @@
 apiVersion: v1
 entries:
+  botkube:
+  - apiVersion: v1
+    appVersion: v0.12.0
+    created: "2021-03-28T13:08:39.178569687+02:00"
+    description: Controller for the BotKube Slack app which helps you monitor your
+      Kubernetes cluster, debug deployments and run specific checks on resources in
+      the cluster.
+    digest: b773f205722ff9d4fcdae0be8cdee251d3e231d579a725a9117215c6791be459
+    home: https://www.botkube.io
+    icon: https://www.botkube.io/images/botkube.ico
+    keywords:
+    - botkube
+    - kubernetes
+    - kubernetes-monitoring
+    - kubernetes-controller
+    - kubernetes-bot
+    - chatops
+    - bot
+    - botops
+    maintainers:
+    - email: eldwan35@gmail.com
+      name: ebrianne
+    name: botkube
+    sources:
+    - https://github.com/infracloudio/botkube
+    urls:
+    - https://github.com/ebrianne/helm-charts/releases/download/botkube-v0.12.1/botkube-v0.12.1.tgz
+    version: v0.12.1
   cert-manager-webhook-duckdns:
   - apiVersion: v1
     appVersion: v1.2.2
@@ -136,4 +164,4 @@ entries:
     urls:
     - https://github.com/ebrianne/helm-charts/releases/download/duckdns-go-v1.0.2/duckdns-go-v1.0.2.tgz
     version: v1.0.2
-generated: "2021-03-27T10:02:22.020352684Z"
+generated: "2021-03-28T13:08:39.460536926+02:00"

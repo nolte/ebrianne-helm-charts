@@ -1,0 +1,6 @@
+duckdns:
+  token: "test"
+  domains: "test"
+
+extraEnvVars:
+  TZ: Europe/Berlin

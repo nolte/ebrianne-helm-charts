@@ -31,7 +31,7 @@ strategy:
 
 customLabels: {}
 
-env: {}
+extraEnvVars: {}
   # TZ: Europe/Berlin
 
 podAnnotations: {}

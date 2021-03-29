@@ -1,4 +1,4 @@
-name: Lint Charts
+name: Lint and Install Charts
 
 on: pull_request
 
@@ -49,10 +49,10 @@ jobs:
           fetch-depth: 0
 
       - name: Create k3s Cluster
-        uses: AbsaOSS/k3d-action@v1.1.0
+        uses: AbsaOSS/k3d-action@v1.3.1
         with:
           cluster-name: "test-cluster"
-          args: --config=.github/k3d.yaml
+          args: --config .github/k3d.yaml
 
       - name: Run chart-testing (lint)
         id: install

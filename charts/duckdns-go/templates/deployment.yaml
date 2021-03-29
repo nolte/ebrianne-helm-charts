@@ -3,12 +3,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "duckdns-go.fullname" . }}
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ .Release.Namespace | quote }}
   labels:
     app: {{ include "duckdns-go.name" . }}
     chart: {{ include "duckdns-go.chart" . }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name | quote }}
+    heritage: {{ .Release.Service | quote }}
     {{- if .Values.customLabels }}
     {{ toYaml .Values.customLabels | nindent 10 }}
     {{- end }}
@@ -21,7 +21,7 @@ spec:
   selector:
     matchLabels:
       app: {{ include "duckdns-go.name" . }}
-      release: {{ .Release.Name }}
+      release: {{ .Release.Name | quote }}
   template:
     metadata:
       {{- if .Values.podAnnotations }}
@@ -30,7 +30,7 @@ spec:
       {{- end }}
       labels:
         app: {{ include "duckdns-go.name" . }}
-        release: {{ .Release.Name }}
+        release: {{ .Release.Name | quote }}
       {{- if .Values.customLabels }}
       {{ toYaml .Values.customLabels | nindent 10 }}
       {{- end }}
@@ -51,19 +51,17 @@ spec:
           {{ toYaml .Values.resources | indent 12 }}
         {{- end }}
         env:
+          {{- range $key, $value := .Values.env }}
+          - name: {{ $key }}
+            value: {{ $value | quote }}
+          {{- end }}
           - name: DUCKDNS_DOMAINS
-            value: {{ .Values.duckdns.domains | quote }}
+            values: {{ .Values.duckdns.domains | quote }}
           - name: DUCKDNS_TOKEN
             valueFrom:
               secretKeyRef:
                 name: {{ include "duckdns-go.secretName" . }}
                 key: token
-        {{- if .Values.extraEnvVars }}
-          {{- range $key, $value := .Values.extraEnvVars }}
-          - name: {{ $key }}
-            value: {{ $value | quote }}
-          {{- end }}
-        {{- end }}
         {{- if .Values.nodeSelector }}
         nodeSelector:
         {{ toYaml .Values.nodeSelector | indent 8 }}

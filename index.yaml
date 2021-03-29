@@ -147,6 +147,25 @@ entries:
   duckdns-go:
   - apiVersion: v1
     appVersion: v1.0.2
+    created: "2021-03-29T13:52:41.45658402+02:00"
+    description: A Helm chart for duckdns go client
+    digest: 99727e6040dc63cea8e5f4af56b664a6c4cc3bf9aaa874c3998a422259904cf6
+    home: https://github.com/ebrianne/duckdns-go
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckdns.png
+    keywords:
+    - duckdns
+    maintainers:
+    - email: eldwan35@gmail.com
+      name: ebrianne
+      url: https://ebrianne.technolab.duckdns.org
+    name: duckdns-go
+    sources:
+    - https://github.com/ebrianne/duckdns-go
+    urls:
+    - https://github.com/ebrianne/helm-charts/releases/download/duckdns-go-v1.0.3/duckdns-go-v1.0.3.tgz
+    version: v1.0.3
+  - apiVersion: v1
+    appVersion: v1.0.2
     created: "2021-03-26T13:09:22.309606975Z"
     description: A Helm chart for duckdns go client
     digest: a13b9ba5a684225e4a1da0947f60a57d60b12b3f7f2ae1cea3e915412e35ffd6
@@ -164,4 +183,4 @@ entries:
     urls:
     - https://github.com/ebrianne/helm-charts/releases/download/duckdns-go-v1.0.2/duckdns-go-v1.0.2.tgz
     version: v1.0.2
-generated: "2021-03-28T13:08:39.460536926+02:00"
+generated: "2021-03-29T13:52:41.456613977+02:00"

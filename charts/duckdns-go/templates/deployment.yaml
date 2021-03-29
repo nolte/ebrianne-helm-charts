@@ -51,17 +51,19 @@ spec:
           {{ toYaml .Values.resources | indent 12 }}
         {{- end }}
         env:
-          {{- range $key, $value := .Values.env }}
-          - name: {{ $key }}
-            value: {{ $value | quote }}
-          {{- end }}
           - name: DUCKDNS_DOMAINS
-            values: {{ .Values.duckdns.domains | quote }}
+            value: {{ .Values.duckdns.domains | quote }}
           - name: DUCKDNS_TOKEN
             valueFrom:
               secretKeyRef:
                 name: {{ include "duckdns-go.secretName" . }}
                 key: token
+        {{- if .Values.extraEnvVars }}
+        {{- range $key, $value := .Values.extraEnvVars }}
+          - name: {{ $key }}
+            value: {{ $value | quote }}
+        {{- end }}
+        {{- end }}
         {{- if .Values.nodeSelector }}
         nodeSelector:
         {{ toYaml .Values.nodeSelector | indent 8 }}

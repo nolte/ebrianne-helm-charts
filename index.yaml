@@ -228,4 +228,25 @@ entries:
     urls:
     - https://github.com/ebrianne/helm-charts/releases/download/duckdns-go-v1.0.2/duckdns-go-v1.0.2.tgz
     version: v1.0.2
-generated: "2021-03-29T16:22:03.897324758Z"
+  local-path-provisioner:
+  - apiVersion: v1
+    appVersion: v0.0.19
+    created: "2021-03-30T11:21:38.529498558Z"
+    description: Use HostPath for persistent local storage with Kubernetes
+    digest: d8b59bc2bd5652df81b879b13ce19868317534e11e3e8ef376d5ddcb4d34fc5c
+    home: https://github.com/rancher/local-path-provisioner
+    keywords:
+    - storage
+    - hostpath
+    kubeVersion: '>=1.12.0-r0'
+    maintainers:
+    - email: eldwan35@gmail.com
+      name: ebrianne
+      url: https://ebrianne.technolab.duckdns.org
+    name: local-path-provisioner
+    sources:
+    - https://github.com/rancher/local-path-provisioner.git
+    urls:
+    - https://github.com/ebrianne/helm-charts/releases/download/local-path-provisioner-0.0.19/local-path-provisioner-0.0.19.tgz
+    version: 0.0.19
+generated: "2021-03-30T11:21:38.529867272Z"

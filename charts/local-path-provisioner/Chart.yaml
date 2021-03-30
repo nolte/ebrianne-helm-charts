@@ -10,3 +10,7 @@ kubeVersion: ">=1.12.0-r0"
 home: https://github.com/rancher/local-path-provisioner
 sources:
   - https://github.com/rancher/local-path-provisioner.git
+maintainers:
+  - name: ebrianne
+    email: eldwan35@gmail.com
+    url: https://ebrianne.technolab.duckdns.org

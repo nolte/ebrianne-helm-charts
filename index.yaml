@@ -173,6 +173,25 @@ entries:
   duckdns-go:
   - apiVersion: v1
     appVersion: v1.0.2
+    created: "2021-03-30T22:37:26.766946719Z"
+    description: A Helm chart for duckdns go client
+    digest: d0406aa26c8c1951e40e446352ea710f5bd6d1552e7cc019b83eb480902dfae5
+    home: https://github.com/ebrianne/duckdns-go
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckdns.png
+    keywords:
+    - duckdns
+    maintainers:
+    - email: eldwan35@gmail.com
+      name: ebrianne
+      url: https://ebrianne.technolab.duckdns.org
+    name: duckdns-go
+    sources:
+    - https://github.com/ebrianne/duckdns-go
+    urls:
+    - https://github.com/ebrianne/helm-charts/releases/download/duckdns-go-v1.0.5/duckdns-go-v1.0.5.tgz
+    version: v1.0.5
+  - apiVersion: v1
+    appVersion: v1.0.2
     created: "2021-03-29T16:22:03.897268256Z"
     description: A Helm chart for duckdns go client
     digest: 81edc90867418d979549e6c1a25a90f77fe77d5be4ee3eb144e09f1eedb0eabe
@@ -249,4 +268,4 @@ entries:
     urls:
     - https://github.com/ebrianne/helm-charts/releases/download/local-path-provisioner-0.0.19/local-path-provisioner-0.0.19.tgz
     version: 0.0.19
-generated: "2021-03-30T11:21:38.529867272Z"
+generated: "2021-03-30T22:37:26.766974319Z"

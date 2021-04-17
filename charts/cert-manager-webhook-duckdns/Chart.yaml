@@ -16,8 +16,3 @@ maintainers:
   - name: ebrianne
     email: eldwan35@gmail.com
     url: https://ebrianne.technolab.duckdns.org
-dependencies:
-  - name: cert-manager
-    version: v1.3.1
-    repository: https://charts.jetstack.io
-    condition: cert-manager.enabled

@@ -1,0 +1,17 @@
+settings:
+  # Cluster name to differentiate incoming messages
+  clustername: ci-test
+
+extraEnv:
+  TZ: Europe/Berlin
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+nodeSelector:
+  kubernetes.io/arch: amd64

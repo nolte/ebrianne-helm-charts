@@ -166,6 +166,20 @@
         "service": {
             "type": "object",
             "properties": {
+                "type": {
+                    "type": "string",
+                    "default": "ClusterIP"
+                },
+                "clusterIP": {
+                    "type": "string",
+                    "format": "ipv4",
+                    "default": null
+                },
+                "loadBalancerIP": {
+                    "type": "string",
+                    "format": "ipv4",
+                    "default": null
+                },
                 "name": {
                     "type": "string",
                     "default": "metrics"

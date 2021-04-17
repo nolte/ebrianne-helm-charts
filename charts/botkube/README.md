@@ -105,6 +105,9 @@ serviceAccount:
 | resources | object | `{}` |  |
 | securityContext.runAsGroup | int | `101` |  |
 | securityContext.runAsUser | int | `101` |  |
+| service.type | string | `"ClusterIP"` |  |
+| service.clusterIP | string | `nil` |  |
+| service.loadBalancerIP | string | `nil` |  |
 | service.name | string | `"metrics"` |  |
 | service.port | int | `2112` |  |
 | service.targetPort | int | `2112` |  |

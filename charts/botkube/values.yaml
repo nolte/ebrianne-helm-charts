@@ -328,6 +328,9 @@ communications:
     url: 'WEBHOOK_URL'                          # e.g https://example.com:80
 
 service:
+  type: ClusterIP                               # or LoadBalancer
+  # clusterIP:
+  # loadBalancerIP:
   name: metrics
   port: 2112
   targetPort: 2112

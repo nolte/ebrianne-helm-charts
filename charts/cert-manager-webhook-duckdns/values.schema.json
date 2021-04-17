@@ -6,6 +6,15 @@
             "type": "object",
             "default": "{}"
         },
+        "cert-manager": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        },
         "certManager": {
             "type": "object",
             "properties": {
@@ -93,6 +102,10 @@
                 }
             }
         },
+        "extraEnv": {
+            "type": "object",
+            "default": "{}"
+        },
         "logLevel": {
             "type": "integer",
             "default": 2
@@ -119,6 +132,16 @@
                 "type": {
                     "type": "string",
                     "default": "ClusterIP"
+                },
+                "clusterIP": {
+                    "type": "string",
+                    "format": "ipv4",
+                    "default": null
+                },
+                "loadBalancerIP": {
+                    "type": "string",
+                    "format": "ipv4",
+                    "default": null
                 }
             }
         },

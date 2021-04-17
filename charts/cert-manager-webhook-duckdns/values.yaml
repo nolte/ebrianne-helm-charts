@@ -34,11 +34,15 @@ image:
   pullPolicy: IfNotPresent
   # pullSecret: ""
 
+extraEnv: {}
+
 nameOverride: ""
 fullnameOverride: ""
 
 service:
-  type: ClusterIP
+  type: ClusterIP                             # or LoadBalancer
+  # clusterIP:
+  # loadBalancerIP:
   port: 443
 
 resources: {}

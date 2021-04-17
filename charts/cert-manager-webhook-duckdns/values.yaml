@@ -1,3 +1,6 @@
+cert-manager:
+  enabled: false
+
 # The GroupName here is used to identify your company or business unit that
 # created this webhook.
 # For example, this may be "acme.mycompany.com".
@@ -34,11 +37,15 @@ image:
   pullPolicy: IfNotPresent
   # pullSecret: ""
 
+extraEnv: {}
+
 nameOverride: ""
 fullnameOverride: ""
 
 service:
-  type: ClusterIP
+  type: ClusterIP                             # or LoadBalancer
+  # clusterIP:
+  # loadBalancerIP:
   port: 443
 
 resources: {}

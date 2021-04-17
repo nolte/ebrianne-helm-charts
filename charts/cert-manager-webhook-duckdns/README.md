@@ -78,6 +78,8 @@ The following table lists the configurable parameters of the cert-manager-webhoo
 | `nameOverride`                     | Name override for the chart                     | `""`                                                    |
 | `fullnameOverride`                 | Full name override for the chart                | `""`                                                    |
 | `service.type`                     | Service type                                    | `ClusterIP`                                             |
+| `service.clusterIP`                | Service cluster IP                              | `nil`                                                   |
+| `service.loadBalancerIP`           | Service LB IP                                   | `nil`                                                   |
 | `service.port`                     | Service port                                    | `443`                                                   |
 | `resources`                        | Pod ressources                                  | `nil`                                                   |
 | `nodeSelector`                     | Node selector                                   | `nil`                                                   |

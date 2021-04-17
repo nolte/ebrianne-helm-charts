@@ -1,6 +1,9 @@
 name: Lint and Install Charts
 
-on: pull_request
+on: 
+  pull_request:
+    branches:
+      - master
 
 jobs:
   changes:
@@ -10,7 +13,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+        with:
+          fetch-depth: 0
+          
       - uses: dorny/paths-filter@v2
         id: filter
         with:
@@ -30,12 +35,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@v2.0.1
+
       - name: Run chart-testing (lint)
         id: lint
-        uses: helm/chart-testing-action@v1.1.0
-        with:
-          command: lint
-          config: ct.yaml
+        run: ct lint --config .github/ct.yaml
 
   install-test:
     runs-on: ubuntu-latest
@@ -48,15 +53,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@v2.0.1
+
       - name: Create k3s Cluster
         uses: AbsaOSS/k3d-action@v1.3.1
         with:
           cluster-name: "test-cluster"
           args: --config .github/k3d.yaml
 
-      - name: Run chart-testing (lint)
+      - name: Run chart-testing (install)
         id: install
-        uses: helm/chart-testing-action@v1.1.0
-        with:
-          command: install
-          config: ct.yaml
+        run: ct install --config .github/ct.yaml

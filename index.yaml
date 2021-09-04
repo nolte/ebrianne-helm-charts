@@ -298,6 +298,26 @@ entries:
     version: v1.0.2
   local-path-provisioner:
   - apiVersion: v1
+    appVersion: v0.0.20
+    created: "2021-09-04T13:16:59.882896292Z"
+    description: Use HostPath for persistent local storage with Kubernetes
+    digest: 87bba3169a8ae1b2533c325e14b50bbf23e9ab523f3d8d38887e28ce2f7f22ea
+    home: https://github.com/rancher/local-path-provisioner
+    keywords:
+    - storage
+    - hostpath
+    kubeVersion: '>=1.12.0-r0'
+    maintainers:
+    - email: eldwan35@gmail.com
+      name: ebrianne
+      url: https://ebrianne.technolab.duckdns.org
+    name: local-path-provisioner
+    sources:
+    - https://github.com/rancher/local-path-provisioner.git
+    urls:
+    - https://github.com/ebrianne/helm-charts/releases/download/local-path-provisioner-0.0.20/local-path-provisioner-0.0.20.tgz
+    version: 0.0.20
+  - apiVersion: v1
     appVersion: v0.0.19
     created: "2021-03-30T11:21:38.529498558Z"
     description: Use HostPath for persistent local storage with Kubernetes
@@ -317,4 +337,4 @@ entries:
     urls:
     - https://github.com/ebrianne/helm-charts/releases/download/local-path-provisioner-0.0.19/local-path-provisioner-0.0.19.tgz
     version: 0.0.19
-generated: "2021-04-17T22:04:25.174534008Z"
+generated: "2021-09-04T13:16:59.883383693Z"

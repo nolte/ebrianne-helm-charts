@@ -57,7 +57,7 @@ jobs:
         uses: helm/chart-testing-action@v2.0.1
 
       - name: Create k3s Cluster
-        uses: AbsaOSS/k3d-action@v1.3.1
+        uses: AbsaOSS/k3d-action@v1.5.0
         with:
           cluster-name: "test-cluster"
           args: --config .github/k3d.yaml

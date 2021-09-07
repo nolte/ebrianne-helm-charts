@@ -1,12 +1,12 @@
 # BotKube
 
-![Version: v0.12.2](https://img.shields.io/badge/Version-v0.12.2-informational?style=flat-square) ![AppVersion: v0.12.0](https://img.shields.io/badge/AppVersion-v0.12.0-informational?style=flat-square)
+![Version: v0.12.5](https://img.shields.io/badge/Version-v0.12.5-informational?style=flat-square) ![AppVersion: v0.12.3](https://img.shields.io/badge/AppVersion-v0.12.3-informational?style=flat-square)
 
 Controller for the BotKube Slack app which helps you monitor your Kubernetes cluster, debug deployments and run specific checks on resources in the cluster.
 
 **Homepage:** <https://www.botkube.io>
 
-## Botkube Maintainers
+## Maintainers
 
 | Name | Email | Url |
 | ---- | ------ | --- |
@@ -40,9 +40,11 @@ serviceAccount:
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
-| communications.existingSecret | boolean | `false` |  |
-| communications.existingSecretName | string | `""` |  |
-| communications.elasticsearch.awsSigning.awsRegion | string | `"us-east-1"` |  |
+| communications.discord.botid | string | `"DISCORD_BOT_ID"` |  |
+| communications.discord.channel | string | `"DISCORD_CHANNEL_ID"` |  |
+| communications.discord.enabled | bool | `false` |  |
+| communications.discord.notiftype | string | `"short"` |  |
+| communications.discord.token | string | `"DISCORD_TOKEN"` |  |
 | communications.elasticsearch.awsSigning.awsRegion | string | `"us-east-1"` |  |
 | communications.elasticsearch.awsSigning.enabled | bool | `false` |  |
 | communications.elasticsearch.awsSigning.roleArn | string | `""` |  |
@@ -53,7 +55,10 @@ serviceAccount:
 | communications.elasticsearch.index.type | string | `"botkube-event"` |  |
 | communications.elasticsearch.password | string | `"ELASTICSEARCH_PASSWORD"` |  |
 | communications.elasticsearch.server | string | `"ELASTICSEARCH_ADDRESS"` |  |
+| communications.elasticsearch.skipTLSVerify | bool | `false` |  |
 | communications.elasticsearch.username | string | `"ELASTICSEARCH_USERNAME"` |  |
+| communications.existingSecretName | string | `""` |  |
+| communications.mattermost.botName | string | `"BotKube"` |  |
 | communications.mattermost.channel | string | `"MATTERMOST_CHANNEL"` |  |
 | communications.mattermost.enabled | bool | `false` |  |
 | communications.mattermost.notiftype | string | `"short"` |  |
@@ -71,7 +76,7 @@ serviceAccount:
 | communications.teams.port | int | `3978` |  |
 | communications.webhook.enabled | bool | `false` |  |
 | communications.webhook.url | string | `"WEBHOOK_URL"` |  |
-| config.recommendations | bool | `true` |  |
+| config.recommendations | bool | `true` |  about the best practices for the created resource |
 | config.resources | list | [] | |
 | config.settings.clustername | string | `"not-configured"` |  |
 | config.settings.configwatcher | bool | `true` |  |
@@ -82,12 +87,16 @@ serviceAccount:
 | config.settings.kubectl.restrictAccess | bool | `false` |  |
 | config.settings.upgradeNotifier | bool | `true` |  |
 | config.ssl.enabled | bool | `false` |  |
+| containerSecurityContext.allowPrivilegeEscalation | bool | `false` |  |
+| containerSecurityContext.privileged | bool | `false` |  |
+| containerSecurityContext.readOnlyRootFilesystem | bool | `true` |  |
 | extraAnnotations | object | `{}` |  |
 | extraEnv | string | `nil` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.registry | string | `"ghcr.io"` |  |
 | image.repository | string | `"infracloudio/botkube"` |  |
-| image.tag | string | `"latest"` |  |
+| image.tag | string | `"v0.12.2"` |  |
 | ingress.annotations."kubernetes.io/ingress.class" | string | `"nginx"` |  |
 | ingress.create | bool | `false` |  |
 | ingress.host | string | `"HOST"` |  |
@@ -103,15 +112,11 @@ serviceAccount:
 | rbac.rules | list | [] |  |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
-| securityContext.runAsGroup | int | `101` |  |
-| securityContext.runAsUser | int | `101` |  |
-| service.type | string | `"ClusterIP"` |  |
-| service.clusterIP | string | `nil` |  |
-| service.loadBalancerIP | string | `nil` |  |
+| securityContext | object | `{"runAsGroup":101,"runAsUser":101}` |  set to run as a Non-Privileged user by default |
 | service.name | string | `"metrics"` |  |
 | service.port | int | `2112` |  |
 | service.targetPort | int | `2112` |  |
-| serviceAccount.annotations | object | `{}` |  |
+| serviceAccount.annotations | object | `{}` |  If not set and create is true, a name is generated using the fullname template annotations for the service account |
 | serviceAccount.create | bool | `true` |  |
 | serviceMonitor.enabled | bool | `false` |  |
 | serviceMonitor.interval | string | `"10s"` |  |

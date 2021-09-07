@@ -13,7 +13,7 @@ image:
   pullPolicy: IfNotPresent
   ## default tag is appVersion from Chart.yaml. If you want to use
   ## some other tag then it can be specified here
-  tag: v0.12.2
+  tag: v0.12.3
 
 nameOverride: ""
 fullnameOverride: ""
@@ -225,7 +225,7 @@ config:
         - delete
         - error
     # Custom resource example
-    # - name: velero.io/v1/backups
+    #- name: velero.io/v1/backups
     #  namespaces:
     #    include:
     #      - all
@@ -247,7 +247,7 @@ config:
 
   ssl:                                           # For using custom SSL certificates
     enabled: false                               # Set to true and specify cert path in the next line after uncommenting
-    # cert:                                       # SSL Certificate file e.g certs/my-cert.crt
+    #cert:                                       # SSL Certificate file e.g certs/my-cert.crt
 
   # Setting to support multiple clusters
   settings:
@@ -262,7 +262,7 @@ config:
         # method which are allowed
         verbs: ["api-resources", "api-versions", "cluster-info", "describe", "diff", "explain", "get", "logs", "top", "auth"]
         # resource configuration which is allowed
-        resources: ["deployments", "pods", "namespaces", "daemonsets", "statefulsets", "storageclasses", "nodes"]
+        resources: ["deployments", "pods" , "namespaces", "daemonsets", "statefulsets", "storageclasses", "nodes" ]
       # set Namespace to execute BotKube kubectl commands by default
       defaultNamespace: default
       # Set true to enable commands execution from configured channel only
@@ -277,13 +277,13 @@ communications:
 
   # Using existing Communication secret
   existingSecretName: ""
-
+  
   # Settings for Slack
   slack:
     enabled: false
     channel: 'SLACK_CHANNEL'                   # Slack channel name without '#' prefix where you have added BotKube and want to receive notifications in
     token: 'SLACK_API_TOKEN'
-    notiftype: short                           # Change notification type short/long you want to receive. notiftype is optional and Default notification type is short (if not specified)
+    notiftype: short                           # Change notification type short/long you want to receive. notiftype is optional and Default notification type is short (if not specified) 
 
   # Settings for Mattermost
   mattermost:
@@ -303,14 +303,15 @@ communications:
     notiftype: short
     port: 3978
 
+  
   # Settings for Discord
   discord:
     enabled: false
-    token: 'DISCORD_TOKEN'                      # BotKube Bot Token
-    botid: 'DISCORD_BOT_ID'                     # BotKube Application Client ID
-    channel: 'DISCORD_CHANNEL_ID'               # Discord Channel id for receiving BotKube alerts
+    token: 'DISCORD_TOKEN'                      # BotKube Bot Token 
+    botid: 'DISCORD_BOT_ID'                     # BotKube Application Client ID 
+    channel: 'DISCORD_CHANNEL_ID'               # Discord Channel id for receiving BotKube alerts 
     notiftype: short                            # Change notification type short/long you want to receive. notiftype is optional and Default notification type is short (if not specified)
-
+  
   # Settings for ELS
   elasticsearch:
     enabled: false
@@ -337,7 +338,7 @@ communications:
 service:
   name: metrics
   port: 2112
-  targetPort: 2112
+  targetPort: 2112  
 
 # Ingress settings to expose teams endpoint
 ingress:
@@ -350,6 +351,7 @@ ingress:
     enabled: false
     secretName: ''
 
+            
 serviceMonitor:
   ## If true, a ServiceMonitor CR is created for a BotKube
   ##  https://github.com/coreos/prometheus-operator/blob/master/Documentation/api.md#servicemonitor
@@ -358,7 +360,7 @@ serviceMonitor:
   interval: 10s
   path: /metrics
   port: metrics
-  labels: {}
+  labels: {} 
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -373,8 +375,8 @@ resources: {}
   #  memory: 128Mi
 
 extraEnv:   # Extra environment variables to pass to the BotKube container, example HTTP_PROXY
-  # HTTP_PROXY: <proxyURL>:<port>
-
+  #HTTP_PROXY: <proxyURL>:<port>
+  
 nodeSelector: {}
 
 tolerations: []
@@ -392,6 +394,6 @@ serviceAccount:
   create: true
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  # name:
+  #name:
   # annotations for the service account
   annotations: {}

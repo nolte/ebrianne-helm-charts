@@ -10,19 +10,7 @@ metadata:
     app.kubernetes.io/managed-by: {{ .Release.Service }}  
     app: botkube
 spec:
-  {{- if (or (eq .Values.service.type "ClusterIP") (empty .Values.service.type)) }}
   type: ClusterIP
-  {{- if .Values.service.clusterIP }}
-  clusterIP: {{ .Values.service.clusterIP }}
-  {{- end }}
-  {{- else if eq .Values.service.type "LoadBalancer" }}
-  type: LoadBalancer
-  {{- if .Values.service.loadBalancerIP }}
-  loadBalancerIP: {{ .Values.service.loadBalancerIP }}
-  {{- end }}
-  {{- else }}
-  type: {{ .Values.service.type }}
-  {{- end }}
   ports:
   {{- if .Values.serviceMonitor.enabled }}
   - name: {{ .Values.service.name }}

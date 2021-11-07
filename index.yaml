@@ -135,6 +135,29 @@ entries:
   cert-manager-webhook-duckdns:
   - apiVersion: v2
     appVersion: v1.2.2
+    created: "2021-11-07T16:10:57.98025399Z"
+    description: A Helm chart for cert manager webhook solver for ACME DNS01 challenge
+      via DuckDNS
+    digest: 245a6e2e1ffdc09dab7848c5455ef777796ef75e796470d24f92fd8c11db07e4
+    home: https://github.com/ebrianne/cert-manager-webhook-duckdns
+    icon: https://raw.githubusercontent.com/jetstack/cert-manager/master/logo/logo.png
+    keywords:
+    - cert-manager
+    - webhook
+    - letsencrypt
+    - tls
+    maintainers:
+    - email: eldwan35@gmail.com
+      name: ebrianne
+      url: https://ebrianne.technolab.duckdns.org
+    name: cert-manager-webhook-duckdns
+    sources:
+    - https://github.com/ebrianne/cert-manager-webhook-duckdns
+    urls:
+    - https://github.com/nolte/ebrianne-helm-charts/releases/download/cert-manager-webhook-duckdns-v1.2.4/cert-manager-webhook-duckdns-v1.2.4.tgz
+    version: v1.2.4
+  - apiVersion: v2
+    appVersion: v1.2.2
     created: "2021-04-17T22:04:25.174459106Z"
     description: A Helm chart for cert manager webhook solver for ACME DNS01 challenge
       via DuckDNS
@@ -389,4 +412,4 @@ entries:
     urls:
     - https://github.com/ebrianne/helm-charts/releases/download/local-path-provisioner-0.0.19/local-path-provisioner-0.0.19.tgz
     version: 0.0.19
-generated: "2021-09-07T20:43:30.842297441Z"
+generated: "2021-11-07T16:10:57.980300091Z"
